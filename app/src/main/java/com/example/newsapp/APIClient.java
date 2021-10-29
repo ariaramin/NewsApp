@@ -1,4 +1,4 @@
-package com.example.newsapptest;
+package com.example.newsapp;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

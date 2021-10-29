@@ -1,22 +1,18 @@
-package com.example.newsapptest;
+package com.example.newsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -57,9 +53,10 @@ public class MainActivity extends AppCompatActivity {
                     TopNewsAdapter sliderAdapter = new TopNewsAdapter(getApplicationContext(), topHeadlines);
                     slider.setSliderAdapter(sliderAdapter);
                     slider.setIndicatorAnimation(IndicatorAnimationType.WORM);
-                    slider.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
-                    slider.setScrollTimeInSec(3);
+                    slider.setSliderTransformAnimation(SliderAnimations.FADETRANSFORMATION);
+                    slider.setScrollTimeInSec(5);
                     slider.startAutoCycle();
+
 
                     List<News> headlines = response.body().getArticles().subList(5, response.body().getArticles().size() - 1);
                     NewsAdapter newsAdapter = new NewsAdapter(getApplicationContext(), headlines);

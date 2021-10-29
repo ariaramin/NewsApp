@@ -1,4 +1,4 @@
-package com.example.newsapptest;
+package com.example.newsapp;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,9 +33,11 @@ public class TopNewsAdapter extends SliderViewAdapter<TopNewsAdapter.TopNewsView
 
     @Override
     public void onBindViewHolder(TopNewsViewHolder viewHolder, int position) {
-        viewHolder.title.setText(sliderItems.get(position).getTitle());
+        News current = sliderItems.get(position);
+
+        viewHolder.title.setText(current.getTitle());
         Glide.with(context)
-                .load(sliderItems.get(position).getImage())
+                .load(current.getImage())
                 .placeholder(R.drawable.resource_default)
                 .error(R.drawable.resource_default)
                 .fitCenter()
@@ -46,14 +47,13 @@ public class TopNewsAdapter extends SliderViewAdapter<TopNewsAdapter.TopNewsView
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, NewsDetailActivity.class);
-                intent.putExtra("source", sliderItems.get(position).source.getName());
-                intent.putExtra("author", sliderItems.get(position).getAuthor());
-                intent.putExtra("title", sliderItems.get(position).getTitle());
-                intent.putExtra("description", sliderItems.get(position).getDescription());
-//                intent.putExtra("url", sliderItems.get(position).getUrl());
-                intent.putExtra("imageUrl", sliderItems.get(position).getImage());
-                intent.putExtra("publishedDate", sliderItems.get(position).getPublishedDate());
-                intent.putExtra("content", sliderItems.get(position).getContent());
+                intent.putExtra("source", current.source.getName());
+                intent.putExtra("author", current.getAuthor());
+                intent.putExtra("title", current.getTitle());
+                intent.putExtra("description", current.getDescription());
+                intent.putExtra("imageUrl", current.getImage());
+                intent.putExtra("publishedDate", current.getPublishedDate());
+                intent.putExtra("content", current.getContent());
 
                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);

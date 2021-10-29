@@ -1,6 +1,4 @@
-package com.example.newsapptest;
-
-import java.util.List;
+package com.example.newsapp;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

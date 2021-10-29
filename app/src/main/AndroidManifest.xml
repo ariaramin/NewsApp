@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.newsapptest">
+    package="com.example.newsapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.NoActionBar">
         <activity
-            android:name=".NewsDetailActivity"
+            android:name="com.example.newsapp.NewsDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.newsapp.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

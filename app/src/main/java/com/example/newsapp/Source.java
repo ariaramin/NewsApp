@@ -1,4 +1,4 @@
-package com.example.newsapptest;
+package com.example.newsapp;
 
 import com.google.gson.annotations.SerializedName;
 

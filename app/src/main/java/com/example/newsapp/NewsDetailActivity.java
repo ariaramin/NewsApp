@@ -1,12 +1,17 @@
-package com.example.newsapptest;
+package com.example.newsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class NewsDetailActivity extends AppCompatActivity {
 
