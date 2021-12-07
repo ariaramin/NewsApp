@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.NoActionBar">
         <activity
-            android:name="com.example.newsapp.NewsDetailActivity"
+            android:name="com.example.newsapp.activities.detail.DetailActivity"
             android:exported="true" />
         <activity
-            android:name="com.example.newsapp.MainActivity"
+            android:name="com.example.newsapp.activities.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.newsapp;
+package com.example.newsapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.newsapp.model.News;
+import com.example.newsapp.activities.detail.DetailActivity;
+import com.example.newsapp.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.List;
@@ -33,32 +36,7 @@ public class TopNewsAdapter extends SliderViewAdapter<TopNewsAdapter.TopNewsView
 
     @Override
     public void onBindViewHolder(TopNewsViewHolder viewHolder, int position) {
-        News current = sliderItems.get(position);
-
-        viewHolder.title.setText(current.getTitle());
-        Glide.with(context)
-                .load(current.getImage())
-                .placeholder(R.drawable.resource_default)
-                .error(R.drawable.resource_default)
-                .fitCenter()
-                .into(viewHolder.image);
-
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, NewsDetailActivity.class);
-                intent.putExtra("source", current.source.getName());
-                intent.putExtra("author", current.getAuthor());
-                intent.putExtra("title", current.getTitle());
-                intent.putExtra("description", current.getDescription());
-                intent.putExtra("imageUrl", current.getImage());
-                intent.putExtra("publishedDate", current.getPublishedDate());
-                intent.putExtra("content", current.getContent());
-
-                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            }
-        });
+        viewHolder.bindData(context, sliderItems.get(position));
     }
 
     @Override
@@ -76,6 +54,26 @@ public class TopNewsAdapter extends SliderViewAdapter<TopNewsAdapter.TopNewsView
 
             image = itemView.findViewById(R.id.topNewsImageView);
             title = itemView.findViewById(R.id.newsTitleTextView);
+        }
+
+        private void bindData(Context context, News news) {
+            title.setText(news.getTitle());
+            Glide.with(context)
+                    .load(news.getImage())
+                    .placeholder(R.drawable.resource_default)
+                    .error(R.drawable.resource_default)
+                    .fitCenter()
+                    .into(image);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    intent.putExtra("news", news);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

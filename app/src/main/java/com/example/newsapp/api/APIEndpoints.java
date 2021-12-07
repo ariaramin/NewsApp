@@ -1,10 +1,12 @@
-package com.example.newsapp;
+package com.example.newsapp.api;
+
+import com.example.newsapp.model.APIResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-interface APIEndpointInterface {
+public interface APIEndpoints {
 
     @GET("top-headlines")
     Call<APIResponse> getTopHeadlines(@Query("country") String country,

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient"
+    android:background="@drawable/gradient_bg"
     android:padding="10dp"
-    tools:context=".NewsDetailActivity">
+    tools:context=".activities.detail.DetailActivity">
 
     <ScrollView
         android:id="@+id/scrollView3"
@@ -52,7 +52,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/primary_pink"
+                    app:cardBackgroundColor="@color/teal_700"
                     app:cardCornerRadius="5dp">
 
                     <TextView
@@ -63,7 +63,6 @@
                         android:paddingTop="1dp"
                         android:paddingEnd="7dp"
                         android:paddingBottom="1dp"
-                        android:text="TextView"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -75,7 +74,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="TextView"
                     android:textColor="@color/black"
                     android:textSize="26sp"
                     android:textStyle="bold" />
@@ -85,7 +83,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="TextView"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
@@ -94,7 +91,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="TextView"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
